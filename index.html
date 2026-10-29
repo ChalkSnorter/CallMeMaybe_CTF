@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101c2c">
+  <title>Northstar Office Systems | Reliable Workplaces</title>
+  <style>
+    :root {
+      --navy: #101c2c;
+      --navy-2: #17283d;
+      --blue: #477fe8;
+      --cyan: #8de0e0;
+      --paper: #f5f7fa;
+      --ink: #182436;
+      --muted: #66758a;
+      --line: #e0e6ee;
+      --white: #fff;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    .topline { height: 5px; background: linear-gradient(90deg, var(--blue), var(--cyan)); }
+    header {
+      background: var(--navy);
+      color: var(--white);
+      border-bottom: 1px solid rgba(255,255,255,.1);
+    }
+    .nav {
+      max-width: 1120px;
+      margin: auto;
+      padding: 22px 26px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 750; letter-spacing: -.03em; }
+    .logo {
+      width: 38px; height: 38px; display: grid; place-items: center;
+      border-radius: 11px; color: var(--navy); background: var(--cyan); font-weight: 900;
+    }
+    .brand small { display: block; font-size: 10px; color: #a9b8ca; letter-spacing: .17em; text-transform: uppercase; font-weight: 600; }
+    nav { display: flex; gap: 27px; align-items: center; font-size: 13px; color: #d0d9e5; }
+    nav a:hover { color: var(--cyan); }
+    .nav-cta { padding: 10px 15px; border: 1px solid #60738b; border-radius: 7px; }
+    .hero { background: var(--navy); color: white; overflow: hidden; }
+    .hero-inner {
+      max-width: 1120px; margin: auto; padding: 76px 26px 84px;
+      display: grid; grid-template-columns: 1.2fr .8fr; gap: 60px; align-items: center;
+    }
+    .eyebrow { color: var(--cyan); font-size: 11px; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; }
+    h1 { font-size: clamp(40px, 5vw, 64px); line-height: 1.04; letter-spacing: -.055em; margin: 17px 0 22px; max-width: 650px; }
+    .hero p { color: #c1ccda; max-width: 580px; font-size: 16px; }
+    .actions { display: flex; gap: 12px; margin-top: 30px; flex-wrap: wrap; }
+    .btn { display: inline-block; padding: 12px 18px; border-radius: 7px; font-size: 13px; font-weight: 750; }
+    .btn-primary { background: var(--cyan); color: var(--navy); }
+    .btn-secondary { border: 1px solid #53657c; color: white; }
+    .hero-card {
+      padding: 27px; border-radius: 15px; border: 1px solid #31445a;
+      background: linear-gradient(145deg, #1b3048, #142338);
+      box-shadow: 0 25px 60px rgba(0,0,0,.2);
+    }
+    .card-head { display: flex; align-items: center; justify-content: space-between; font-size: 12px; color: #d5dfeb; }
+    .status { color: #9de2c0; font-size: 11px; }
+    .chart { height: 105px; display: flex; align-items: end; gap: 9px; padding: 18px 0 10px; border-bottom: 1px solid #33465c; }
+    .chart span { flex: 1; background: linear-gradient(180deg, var(--cyan), #4d8ce8); border-radius: 4px 4px 0 0; opacity: .9; }
+    .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; padding-top: 19px; }
+    .stats strong { display: block; font-size: 25px; letter-spacing: -.04em; }
+    .stats small { color: #aab9ca; font-size: 11px; }
+    .trust-strip { background: white; border-bottom: 1px solid var(--line); }
+    .trust-inner { max-width: 1120px; margin: auto; padding: 21px 26px; display: flex; justify-content: space-between; align-items: center; gap: 18px; color: #6c7a8d; font-size: 11px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; flex-wrap: wrap; }
+    main section { max-width: 1120px; margin: auto; padding: 76px 26px; }
+    .section-top { max-width: 650px; margin-bottom: 32px; }
+    .section-top h2 { margin: 8px 0 12px; font-size: clamp(28px, 3vw, 39px); line-height: 1.15; letter-spacing: -.04em; }
+    .section-top p { color: var(--muted); margin: 0; }
+    .service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .service {
+      background: white; border: 1px solid var(--line); border-radius: 12px; padding: 25px;
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+    .service:hover { transform: translateY(-3px); box-shadow: 0 14px 30px rgba(25,45,70,.08); }
+    .service-icon { width: 42px; height: 42px; border-radius: 10px; display: grid; place-items: center; background: #e8f0ff; color: #2e65c5; font-size: 20px; }
+    .service h3 { margin: 17px 0 8px; font-size: 17px; }
+    .service p { color: var(--muted); font-size: 13px; margin: 0; }
+    .numbers { background: #eaf0f6; border-top: 1px solid #dce5ef; border-bottom: 1px solid #dce5ef; }
+    .numbers-inner { max-width: 1120px; margin: auto; padding: 54px 26px; display: grid; grid-template-columns: 1fr 1fr; gap: 55px; align-items: start; }
+    .numbers h2 { font-size: 30px; line-height: 1.15; letter-spacing: -.04em; margin: 8px 0 12px; }
+    .numbers p { color: var(--muted); font-size: 14px; }
+    .contact-list { background: white; border: 1px solid #dce4ed; border-radius: 12px; overflow: hidden; }
+    .contact-row { padding: 15px 19px; display: flex; justify-content: space-between; gap: 16px; border-bottom: 1px solid var(--line); font-size: 13px; }
+    .contact-row:last-child { border-bottom: 0; }
+    .contact-row span { color: var(--muted); }
+    .contact-row strong { font-weight: 750; text-align: right; }
+    .contact-row .rune-number { color: #8b3fd1; font-family: "Segoe UI Symbol", "Noto Sans Runic", sans-serif; letter-spacing: .08em; line-height: 1.45; }
+    .help-panel { background: var(--navy-2); color: white; border-radius: 14px; padding: 28px; margin-top: 24px; }
+    .help-panel h3 { margin: 0 0 8px; font-size: 19px; }
+    .help-panel p { color: #c3cfdd; font-size: 13px; margin: 0; }
+    .help-panel .micro-note { margin-top: 15px; padding-top: 14px; border-top: 1px solid #40516a; color: #d7e4ef; }
+    .help-panel .micro-note b { color: var(--cyan); }
+    .contact-section { display: grid; grid-template-columns: .9fr 1.1fr; gap: 55px; align-items: start; }
+    .contact-section h2 { font-size: 37px; letter-spacing: -.04em; line-height: 1.1; margin: 9px 0 15px; }
+    .contact-section p { color: var(--muted); }
+    form { background: white; border: 1px solid var(--line); border-radius: 12px; padding: 24px; }
+    label { display: block; font-size: 12px; font-weight: 750; margin: 0 0 6px; }
+    input, select, textarea { width: 100%; padding: 12px; border: 1px solid #d7e0e9; border-radius: 7px; font: inherit; font-size: 13px; margin-bottom: 15px; background: #fbfcfe; color: var(--ink); }
+    textarea { min-height: 100px; resize: vertical; }
+    button { border: 0; cursor: pointer; font: inherit; }
+    .form-msg { display: none; color: #246b4a; font-size: 13px; margin-top: 12px; }
+    footer { background: var(--navy); color: #c0ccda; }
+    .footer-inner { max-width: 1120px; margin: auto; padding: 31px 26px; display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; font-size: 11px; }
+    .footer-inner strong { color: white; }
+    @media (max-width: 760px) {
+      nav { display: none; }
+      .hero-inner, .numbers-inner, .contact-section { grid-template-columns: 1fr; gap: 32px; }
+      .hero-inner { padding-top: 55px; padding-bottom: 58px; }
+      .service-grid { grid-template-columns: 1fr; }
+      main section { padding-top: 55px; padding-bottom: 55px; }
+      .trust-inner { justify-content: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topline"></div>
+  <header>
+    <div class="nav">
+      <a class="brand" href="#" aria-label="Northstar home">
+        <span class="logo">N</span>
+        <span>northstar <small>office systems</small></span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="#services">Solutions</a>
+        <a href="#company">Our company</a>
+        <a href="#support">Support centre</a>
+        <a href="#contact" class="nav-cta">Contact us</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div class="hero-inner">
+      <div>
+        <div class="eyebrow">Work smarter. Stay connected.</div>
+        <h1>Technology that keeps your business moving.</h1>
+        <p>Northstar Office Systems helps growing teams manage their workplace technology, communications, and day-to-day IT with less friction.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#services">Explore our solutions</a>
+          <a class="btn btn-secondary" href="#support">Visit support centre</a>
+        </div>
+      </div>
+      <div class="hero-card" aria-label="Company service overview">
+        <div class="card-head"><span>Service overview</span><span class="status">● Systems operational</span></div>
+        <div class="chart" aria-hidden="true">
+          <span style="height:38%"></span><span style="height:57%"></span><span style="height:47%"></span><span style="height:72%"></span><span style="height:62%"></span><span style="height:87%"></span><span style="height:76%"></span><span style="height:96%"></span><span style="height:82%"></span>
+        </div>
+        <div class="stats">
+          <div><strong>99.8%</strong><small>Target service availability</small></div>
+          <div><strong>24/5</strong><small>Business support coverage</small></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="trust-strip">
+    <div class="trust-inner">
+      <span>Practical by design</span><span>Secure connections</span><span>Human support</span><span>Built for growing teams</span>
+    </div>
+  </div>
+
+  <main>
+    <section id="services">
+      <div class="section-top">
+        <div class="eyebrow" style="color:#477fe8">What we do</div>
+        <h2>One partner for your everyday technology.</h2>
+        <p>From the first login of the morning to the last call of the day, we make the tools your team relies on work together.</p>
+      </div>
+      <div class="service-grid">
+        <article class="service">
+          <div class="service-icon">⌘</div>
+          <h3>Managed IT</h3>
+          <p>Device setup, software maintenance, account support, and practical guidance for a reliable workplace.</p>
+        </article>
+        <article class="service">
+          <div class="service-icon">◉</div>
+          <h3>Business communications</h3>
+          <p>VoIP phone systems, extensions, call routing, and clear communication workflows for distributed teams.</p>
+        </article>
+        <article class="service">
+          <div class="service-icon">⌁</div>
+          <h3>Network & security</h3>
+          <p>Network planning, access reviews, backup checks, and sensible security practices that scale with you.</p>
+        </article>
+      </div>
+    </section>
+
+    <div class="numbers" id="company">
+      <div class="numbers-inner">
+
+<div>
+  <div class="eyebrow" style="color:#477fe8">A little about us</div>
+  <h2>Calling eachother should be simple.</h2>
+  <p>At Northstar Office Systems, communication is at the heart of everything we do. Our teams use MicroSIP to stay connected throughout the workday, whether they're coordinating installations, helping clients, or checking in with colleagues across departments.</p>
+  <p>Every employee has an internal extension, making it easy to reach the right person without interrupting the entire office. For the best experience, make sure MicroSIP is running and your extension is registered before placing a call.</p>
+</div>
+        <div>
+          <div class="contact-list" aria-label="Company contact directory">
+            <div class="contact-row"><span>CTF host</span><strong>0000</strong></div>
+            <div class="contact-row"><span>Sales enquiries</span><strong>+32 (0)50 21 48 27</strong></div>
+            <div class="contact-row"><span>anVzdCBhIGR1ZGUgd2hvIGxpa2VzIGJhc2U2NA==</span><strong>aSBkb24ndCBrbm93IGhvdyB0byBwdXQgbnVtYmVycyBpbnRvIGJhc2U2NA==</strong></div>
+            <div class="contact-row"><span>New installations</span><strong>+32 (0)50 21 48 42</strong></div>
+            <div class="contact-row"><span>Freds Bear</span><strong>1987</strong></div>
+            <div class="contact-row"><span>Benjamin Alexander Rogers</span><strong>2000</strong></div>
+            <div class="contact-row"><span>Ricky Rolls</span><strong>2484345508</strong></div>
+            <div class="contact-row"><span>Bryan Mills</span><strong>9000</strong></div>
+            <div class="contact-row"><span>╎ ᔑᒲ ᓭℸᒷ⍊ᒷ</span></span><strong>⍑𝙹∴ᒲ⚍ᓵ⍑ ╎ᓭ ᔑ ᓭℸᔑᓵꖌ ╎リ ᒲ╎リᒷᓵ∷ᔑ⎓ℸ ᔑ⊣ᔑ╎リ?</strong></div>
+            <div class="contact-row"><span>General mailbox</span><strong>hello@northstar.example</strong></div>
+            <div class="contact-row"><span>Fredrik Idestam</span><strong>3310</strong></div>
+            <div class="contact-row"><span>Roger L. Jackson</span><strong>4357</strong></div>
+          </div>
+          <div class="help-panel" id="support">
+            <h3>Need help with your microSIP setup?</h3>
+            <p>We can't help, figure it out.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section id="contact">
+      <div class="contact-section">
+        <div>
+          <div class="eyebrow" style="color:#477fe8">Get in touch</div>
+          <h2>Let’s make work flow better.</h2>
+          <p>Tell us a little about your team and we’ll direct your enquiry to the right department.</p>
+          <p><strong>Office:</strong> +32 (0)50 21 48 16<br>
+             <strong>Service desk:</strong> +32 (0)50 21 48 51<br>
+             <strong>After-hours line:</strong> +32 (0)50 21 48 88<br>
+             <strong>Address:</strong> Harbor Point 14, 8000 Brugge</p>
+          <p style="font-size:11px">Northstar Office Systems is a fictional company created for demonstration purposes. Contact details use example-only domains where applicable.</p>
+        </div>
+        <form id="contactForm">
+          <label for="name">Your name</label>
+          <input id="name" name="name" placeholder="e.g. Alex Morgan" required>
+          <label for="email">Work email</label>
+          <input id="email" name="email" type="email" placeholder="alex@company.example" required>
+          <label for="topic">What can we help with?</label>
+          <select id="topic" name="topic">
+            <option>Managed IT</option>
+            <option>Business communications</option>
+            <option>Network & security</option>
+            <option>Billing and accounts</option>
+          </select>
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Briefly describe what you need..."></textarea>
+          <button class="btn btn-primary" type="submit">Send enquiry</button>
+          <div class="form-msg" id="formMsg" role="status">Demo form only — no information has been sent.</div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div><strong>northstar office systems</strong><br>Reliable workplaces, thoughtfully connected.</div>
+      <div>Privacy · Terms · Service status<br>© 2026 Northstar Office Systems</div>
+    </div>
+  </footer>
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+      document.getElementById('formMsg').style.display = 'block';
+    });
+  </script>
+</body>
+</html>
